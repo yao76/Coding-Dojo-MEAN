@@ -1,0 +1,11 @@
+<div class="task-list" *ngFor="let task of tasks; let idx = index">
+    <p>Title: {{ task.title }}</p>
+    <p>Description: {{task.description}}</p>
+    <div class="row">
+        <div class="col">
+            <button (click)="editTaskForm(idx)">Edit!</button>
+            <button (click)="deleteTaskForm(idx)">Delete</button>
+        </div>
+    </div>
+
+</div>

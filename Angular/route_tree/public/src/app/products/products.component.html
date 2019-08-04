@@ -1,0 +1,14 @@
+<style>
+    .main {
+        border-style: solid;
+        border-color: blue;
+    }
+</style>
+<div class="main">
+    <p>/products</p>
+
+    <a [routerLink] = "['details', 5]"> <button>Go to /products/details/5</button> </a>  
+    <router-outlet></router-outlet>
+
+    <!-- <app-product-detail></app-product-detail> -->
+</div>

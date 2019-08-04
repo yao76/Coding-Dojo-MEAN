@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+    <h1>Favorite Authors</h1>
+    <a [routerLink]="['']">
+        <h2>Home</h2>
+    </a>
+    <p>Add a new author:</p>
+    <div class="row">
+        <div class="col-5">
+            <form>
+                <div class="form-group">
+                    <!-- <p> {{ newAuthor | json }} </p> -->
+                    <label for="author_name">Name:</label>
+                    <input type="text" class="form-control d-inline-block" id="author_name" placeholder="Name" name="name" [(ngModel)] = newAuthor.name
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    #name = "ngModel"
+                    />
+                    <span *ngIf="!name.pristine && name.errors" class="d-inline-block text-danger">Name Error</span>
+                </div>
+                <div class="btn-group" role="group">
+                    <div>
+                        <button *ngIf="name.valid" (click)="addAuthor()" [routerLink] = "['']" type="button" class="btn btn-primary mr-3">Submit</button>
+                        <button *ngIf="!name.valid" type="button" class="btn btn-primary mr-3 disabled">Submit</button>
+                    </div>
+                    <a [routerLink]="['']"><button class="btn btn-danger">Cancel</button> </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <!-- <input type="text" [value]="first_name" /> -->
+  <h1>Restful Tasks API</h1>
+  <h1>All the tasks:</h1><br>
+  <button (click)="getTasksFromService()">Get all tasks!</button>
+
+  <div *ngFor="let task of tasks; let idx = index">
+    <p>Title: {{ task.title }}</p>
+    <button (click)="getSingleTask(idx)">Show info!</button>
+    
+  </div>
+
+  <div *ngIf=task>
+    <p >Title: {{ task.title }}</p>
+    <p>Description: {{ task?.description }}</p>
+
+  </div>
+
+
+
+
+
+  <router-outlet></router-outlet>

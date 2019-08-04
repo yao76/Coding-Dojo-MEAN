@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are some quotes!</h1>
+        <div id="users">
+            <% for(var i in info) { %>
+                <p>Quote: "<%= info[i].quote %>"</p>
+                <p class="offset-1">-<%= info[i].name %> at <%= info[i].createdAt.toLocaleTimeString() + " on " + info[i].createdAt.toDateString() %></p>
+            <hr>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

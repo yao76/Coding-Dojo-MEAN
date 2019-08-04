@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+    <h1>Browse the ledger</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Value</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let activity of activities">
+                <td>{{activity.action}}</td>
+                <td>{{activity.amount}}</td>
+                <td>{{activity.value}}</td>
+                <!-- <td><a [routerLink]="['/transaction', activity.id]">Details</a></td> -->
+                <button class="btn btn-primary"(click)='_httpService.getTransaction(activity.id)' [routerLink]="['/transaction', activity.id]">Details</button>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <h1>All Pokemon</h1>
+  <p *ngFor="let poke of pokes">{{poke.name}}</p>
+
+  <h1>Aron's abilities</h1>
+  <p *ngFor="let ab of abilities">{{ab.ability.name}}</p>
+
+<router-outlet></router-outlet>

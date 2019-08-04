@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="top-nav d-flex p-1">
+                <div class="p-2">
+                    <a href="/">Back</a>
+                </div>
+            </div>
+            <h1>Edit <%= info.name %>!</h1>
+            <form class="mt-5" action="/titans/<%= info._id %>" method="POST">
+                <div class="form-group row">
+                    <label for="name" class="col-2 col-form-label">Titan Name:</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="name" name="name" value="<%= info.name %>">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="height" class="col-2 col-form-label">Height:</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="height" name="height" value="<%= info.height %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-2 mt-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <!-- <a class="btn btn-primary" href="/quotes">Skip to quotes</a> -->
+                    </div>
+                </div>
+            </form>
+
+            <div class="errors">
+                <!-- tip to easily see objects printed in full instead of [object Object] -->
+                <%- JSON.stringify(messages) %>
+                <!-- based on the structure of your messages, determine how to display them -->
+                <% if(messages.registration) { %>
+                <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+</body>
+
+</html>

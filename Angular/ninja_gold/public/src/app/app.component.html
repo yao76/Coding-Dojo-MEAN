@@ -1,0 +1,64 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+  <div >
+
+    <h1 class=offset-3>
+      Welcome to {{ title }}!
+    </h1>
+    <div class="header mb-5">
+      <table class=gold_table>
+        <tr class=header_row>
+          Your Total Gold: <td>{{gold}}</td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="row main">
+      <div class="col-3">
+        <div class="box1">
+          <h1>Farm</h1>
+          <p>(earns 10-20 gold)</p>
+          <button (click)="onButtonClickParam('farm')" class="btn btn-success">Find Gold!</button>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="box2">
+          <h1>Cave</h1>
+          <p>(earns 5-10 gold)</p>
+          <button (click)="onButtonClickParam('cave')" class="btn btn-success">Find Gold!</button>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="box3">
+          <h1>House</h1>
+          <p>(earns 2-5 gold)</p>
+          <button (click)="onButtonClickParam('house')" class="btn btn-success">Find Gold!</button>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="box4">
+          <h1>Casino</h1>
+          <p>(earns/takes 0-50 gold)</p>
+          <button (click)="onButtonClickParam('casino')" class="btn btn-success">Find Gold!</button>
+        </div>
+      </div>
+    </div>
+    <p class="activity_text">Activities: </p>
+    <div class = "activities">
+            <ul *ngFor="let event of events" class="list-group list-unstyled">
+                <!-- {% for activity in request.session.activities reversed %}
+                    <li class = "{{ activity.color }}">{{ activity.result }}</li>
+                {% endfor %} -->
+
+                <li class={{event.color}}>{{event.message}}</li>
+                <!-- <li *ngIf="event.last_gold < 0">Entered the {{event.area}} and lost {{event.last_gold}} gold</li> -->
+            </ul>
+        </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

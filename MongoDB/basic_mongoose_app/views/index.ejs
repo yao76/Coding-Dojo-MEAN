@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <form class="mt-5" action="/users" method="POST">
+            <div class="form-group row">
+                <label for="name" class="col-2 col-form-label">Your Name:</label>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="age" class="col-2 col-form-label">Age:</label>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="age" name="age">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-7 mt-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="users">
+            <% for(var i in info) { %>
+            <p><%= info[i].name %></p>
+            <p><%= info[i].age %></p>
+            <hr>
+            <% } %>
+            <!-- tip to easily see objects printed in full instead of [object Object] -->
+            <%- JSON.stringify(messages) %>
+            <!-- based on the structure of your messages, determine how to display them -->
+            <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+            <h3><%= x %></h3>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

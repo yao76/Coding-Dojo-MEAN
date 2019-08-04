@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+        function Ninja(name) {
+            var speed = 3;
+            var strength = 3;
+            this.name = name;
+            this.health = 100;
+
+            Ninja.prototype.sayName = function() {
+                console.log("My ninja name is " + name);
+            }
+
+
+            Ninja.prototype.showStats = function() {
+                console.log("Name: " + this.name + " Health: " + this.health + " Speed: " + speed + " Strength: " + strength)
+                
+            }
+
+            Ninja.prototype.drinkShake = function(){
+                this.health += 10;
+            }
+
+            // this.drinkShake = function(){
+            //     this.health += 10;
+            //     return this;
+            // }
+
+        }
+
+        var ninja1 = new Ninja("Hyabusa");
+        ninja1.sayName();
+        ninja1.showStats();
+        ninja1.drinkShake();
+        ninja1.showStats();
+        ninja1.drinkShake();
+        ninja1.showStats();
+        ninja1.drinkShake();
+        ninja1.showStats();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+
+<div style="text-align:center">
+
+  <!-- <input type="text" [value]="first_name" /> -->
+  <h1>Restful Tasks API</h1>
+
+  <div class="task-form">
+    <form (submit)="onSubmit()">
+      <!-- use the json pipe to see how newTask changes in real time -->
+      <p> {{ newTask | json }} </p>
+      <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+      <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+      <input type="submit" value="Create Task" />
+    </form>
+  </div>
+
+  <h1>All the tasks:</h1><br>
+  <button (click)="getTasksFromService()">Get all tasks!</button>
+
+  <div class="task-list" *ngFor="let task of tasks; let idx = index">
+    <p>Title: {{ task.title }}</p>
+    <p>Description: {{task.description}}</p>
+    <div class="row">
+      <div class="col">
+        <button (click)="editTaskForm(idx)">Edit!</button>
+        <button (click) = "deleteTaskForm(idx)">Delete</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="task-details" *ngIf=task>
+    <form (submit)="processEditTask()">
+      <!-- use the json pipe to see how newTask changes in real time -->
+      <p> {{ editTask | json }} </p>
+      <label for="editTask.title">Edit Title</label>
+      <input type="text" name="editTask.title" [(ngModel)]="editTask.title" [value] = "editTask.title" />
+      <label for="editTask.description">Edit Description</label>
+      <input type="text" name="editTask.description" [(ngModel)]="editTask.description" [value]="editTask.description"/>
+      <input type="submit" value="Edit Task" />
+    </form>
+  </div>
+
+
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <nav>
+    <a [routerLink]="['seattle']">Seattle</a> |
+    <a [routerLink]="['beijing']">Beijing</a> |
+    <a [routerLink]="['dubai']">Dubai</a> |
+    <a [routerLink]="['moscow']">Moscow</a> |
+    <a [routerLink]="['singapore']">Singapore</a> |
+    <a [routerLink]="['cairo']">Cairo</a>
+  </nav>
+</div>
+<router-outlet></router-outlet>

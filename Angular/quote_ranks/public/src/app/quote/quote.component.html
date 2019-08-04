@@ -1,0 +1,30 @@
+<div class="container">
+
+
+    <div *ngIf="author">
+        <a [routerLink]="['/write', author._id]"> <button class="btn btn-success">Add a Quote</button></a>
+    </div>
+
+    <p>Quotes by {{author.name}}</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Quote</th>
+                <th scope="col">Votes</th>
+                <th scope="col">Actions Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let quote of author.quotes; let idx = index">
+                <td>{{quote.content}}</td>
+                <td>{{quote.votes}}</td>
+                <td>
+                    <button (click)="voteUp(idx, author._id)"  type="button" class="btn btn-primary">Vote Up</button> | 
+                    <button (click)="voteDown(idx, author._id)"  type="button"class="btn btn-primary">Vote Down</button> | 
+                    <button (click)="deleteQuote(quote._id)"  type="button"class="btn btn-primary">Delete</button> | 
+                    <a [routerLink]="['/quotes/edit', quote._id, idx]"> <button class="btn btn-primary">Edit Quote</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <p *ngFor="let quote of author.quotes">{{quote.content}}</p> -->
+</div>

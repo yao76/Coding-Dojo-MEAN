@@ -1,0 +1,44 @@
+.box1 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 5px;
+    background-image: linear-gradient(Crimson,darkred)
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    background-image: linear-gradient(LightYellow,darkorange)
+
+}
+
+.box3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    background-image: linear-gradient(DeepSkyBlue,blue)
+}
+
+.box4 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    background-image: linear-gradient(violet, Purple)
+}
+
+.gold_table {
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 3px;
+    padding-top: 5px;
+}

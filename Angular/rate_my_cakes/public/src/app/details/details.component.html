@@ -1,0 +1,19 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="row">
+    <div class="col">
+        <div class="cake-list ml-3">
+            <p>Baked by: {{ thisCake.baker }}</p>
+            <img [src]="thisCake.image" alt="#" style="max-width: 300px;">
+        </div>
+    </div>
+    <div class="col" *ngIf="avgParentHTML">
+        <br>
+        <p>Average Rating: {{avgParentHTML}}</p>
+        <div *ngFor="let review of thisCake.reviews; let idx = index">
+            <p>Review: {{review.comment}}</p>
+            <p>Rating: {{review.rating}}</p>
+        </div>
+    </div>
+</div>

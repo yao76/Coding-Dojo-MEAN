@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // parent Dot class
+        class Dot {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            showLocation() {
+                console.log(`This ${this.constructor.name} is at x ${this.x} and y ${this.y}`);
+            }
+            // simple method in the parent class
+            parentFunction() {
+                return "This is coming from the parent!";
+            }
+        }
+        // child Circle class
+        class Circle extends Dot {
+            constructor(x, y, radius) {
+                super(x, y);
+                this.radius = radius;
+            }
+
+            // simple function in the child class
+            childFunction() {
+                // by using super, we can call the parent method
+                const message = super.parentFunction();
+                console.log(message);
+            }
+
+            get diameter() {
+                return this.radius * 2;
+            }
+        }
+        // we can now create Circles
+        const circle1 = new Circle(1, 2, 5);
+        // same attributes as a Dot, plus a radius
+        console.log(circle1);
+        // and Circles can access Dot methods
+        circle1.showLocation();
+
+        circle1.childFunction()
+
+        console.log(circle1.diameter);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+    <h1>Favorite Authors</h1>
+    <a [routerLink]="['/new']">
+        <h2>Add an author</h2>
+    </a>
+
+    <!-- <p *ngFor="let author of allAuthors">{{author.name}}</p> -->
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of allAuthors">
+                <td>{{author.name}}</td>
+                <td><button [routerLink]="['/edit', author._id]">Edit</button>
+                <button (click)="deleteOneAuthor(author._id)">Delete</button>
+                <a [routerLink]="['/quotes', author._id]"> <button>View Quotes</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

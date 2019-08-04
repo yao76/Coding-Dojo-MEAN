@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<style>
+  .main {
+    border-style: solid;
+    border-color: coral;
+  }
+</style>
+<div class="main" style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <a [routerLink]="['products']"><button>Products</button> </a>
+  <router-outlet></router-outlet>
+</div>
+
+

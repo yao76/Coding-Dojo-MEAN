@@ -1,0 +1,11 @@
+<div class="card-columns">
+    <div *ngFor="let product of allProducts" class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="product.image" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">${{product.price}}</p>
+            <a [routerLink]="['/products/edit', product._id]"><button class="btn btn-warning mr-3">Edit</button> </a>
+            <button (click)="deleteOneProduct(product._id)" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+</div>

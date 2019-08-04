@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <% for (var x in cat_array) { %>
+        <div class="card mt-5">
+            <div class="card-body">
+                <h3><%= x %>: <%= cat_array[x] %></h3>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>
+
+</html>

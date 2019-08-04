@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Result</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card col-6 offset-3 mt-3">
+            <div class="card-body">
+                <h4 class="card-title">Submitted Information</h4>
+                <hr>
+                <div class="row offset-1">   
+                    <div class="col-6">
+                        <p class="card-text">Name:</p>
+                        <hr>
+                        <p class="card-text">Dojo Location:</p>
+                        <hr>
+                        <p class="card-text">Favorite Language:</p>
+                        <hr>
+                        <p class="card-text">Comment:</p>
+                        <hr>
+                    </div>
+                    <div class="col-6">
+                        <p class="card-text"> <%= name %> </p>
+                        <hr>
+                        <p class="card-text"><%= dojo_location %></p>
+                        <hr>
+                        <p class="card-text"><%= fav_language %></p>
+                        <hr>
+                        <p class="card-text"><%= comment %></p>
+                        <hr>
+                    </div>
+                </div>
+
+                <a href="/" class="btn btn-primary offset-9">Go back</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

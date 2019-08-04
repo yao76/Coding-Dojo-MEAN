@@ -1,0 +1,18 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <nav>
+    <button class="btn btn-primary m-2" [routerLink]="['home']">Home</button> 
+    <button class="btn btn-primary m-2"[routerLink]="['mine']">Mine Coins</button> 
+    <button class="btn btn-primary m-2"[routerLink]="['buy']">Buy Coins</button> 
+    <button class="btn btn-primary m-2"[routerLink]="['sell']">Sell Coins</button> 
+    <button class="btn btn-primary m-2"[routerLink]="['ledger']">Browse Ledger</button> 
+  </nav>
+</div>
+<router-outlet></router-outlet>

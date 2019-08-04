@@ -1,0 +1,126 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<div class="container-fluid">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div class="row">
+    <div class="col-4 offset-7">
+      <!-- search form -->
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Baker's name" #bakerName>
+          <div class="input-group-append">
+            <button (click)="findByBaker(bakerName.value)" class="btn btn-outline-warning" type="button">Search by
+              baker</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="row m-1">
+    <div class="col-4 cake-form">
+      <p>Submit cake to be rated</p>
+      <hr>
+      <form (submit)="newCakeSubmit()">
+        <!-- <p> {{ newCake | json }} </p> -->
+        <div class="form-group">
+          <label for="baker-name">Baker Name:</label>
+          <input id=baker-name type="text" class="form-control" placeholder="Enter baker name" name="newCake.baker"
+            [(ngModel)]="newCake.baker"/>
+        </div>
+        <div class="form-group">
+          <label for="image-url">Image URL:</label>
+          <input type="text" class="form-control" id="image-url" placeholder="Image URL" name="newCake.image"
+            [(ngModel)]="newCake.image" />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+
+    <div data-spy="scroll" id="all-cakes" class="col-8 cake-rating-list">
+
+      <!-- if search term was not entered, for example on page load -->
+      <ng-container *ngIf="!searched; else searchedEntered">
+        <div *ngFor="let cake of allCakes; let idx = index" class="p-1 mb-1 card border border-primary"
+          style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <a (click)="cakeInfo(idx)"><img class="card-img" [src]="cake.image" alt="#" style="max-height: 200px;max-width: 200px;"></a>
+              <!-- <a (click)="cakeInfo(idx)"><img class="card-img" src="https://www.yourcupofcake.com/wp-content/uploads/2014/07/Andes-Mint-Cake-Recipe.jpg" alt="#"></a> -->
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <!-- Form for new review -->
+                <form (submit)="newReviewSubmit(cake._id)">
+                  <!-- <p> {{ newReview | json }} </p> -->
+                  <div class="form-group">
+                    <select class="form-control" id="rating" name="newReview.rating" [(ngModel)]="newReview.rating">
+                      <option value="" selected disabled hidden>Rate this cake!</option>
+                      <option value="5">5 stars</option>
+                      <option value="4">4 stars</option>
+                      <option value="3">3 stars</option>
+                      <option value="2">2 stars</option>
+                      <option value="1">1 star</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="newReview.comment" [(ngModel)]="newReview.comment"
+                      placeholder="Write a comment for this cake!">
+                  </div>
+                  <input type="submit" class="btn btn-info" value="Submit">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- if search was entered, this is the else statement -->
+      <ng-template #searchedEntered>
+        <div *ngFor="let cake of cakesByBakersFound; let idx = index" class="p-1 mb-1 card border border-primary">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <a (click)="searchedCakeInfo(idx)"><img class="card-img" [src]="cake.image" alt="#"style="max-height: 200px;max-width: 200px;"></a>
+              <!-- <a (click)="cakeInfo(idx)"><img class="card-img" src="https://www.yourcupofcake.com/wp-content/uploads/2014/07/Andes-Mint-Cake-Recipe.jpg" alt="#"></a> -->
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <form (submit)="newReviewSubmit(cake._id)">
+                  <!-- <p> {{ newReview | json }} </p> -->
+                  <div class="form-group">
+                    <select class="form-control" id="rating" name="newReview.rating" [(ngModel)]="newReview.rating">
+                      <option value="" selected disabled hidden>Rate this cake!</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="newReview.comment" [(ngModel)]="newReview.comment"
+                      placeholder="Write a comment for this cake!">
+                  </div>
+                  <input type="submit" class="btn btn-info" value="Submit">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="mt-3">
+    <app-details *ngIf="clicked" [thisCake]="selectedCake" [avgParentHTML]="avgRating"></app-details>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

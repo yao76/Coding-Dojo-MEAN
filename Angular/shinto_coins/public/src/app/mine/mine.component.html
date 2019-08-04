@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="container">
+
+    <h1>Mine ShintoCoin</h1>
+    <p>Here you can mine ShintoCoins by being the first to solve the algorithm:</p>
+    <p>What is the 7th Fibonacci sequence number?</p>
+    <div class="row">
+        <div class="col-6">
+            <form (submit)="mineCoins()">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Number" name="answer" [(ngModel)]="answer" answer="answer">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary">Mine Coins!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

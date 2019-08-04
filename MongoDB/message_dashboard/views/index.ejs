@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body class="">
+    <div class="container">
+
+        <div class="top-nav d-flex p-1" style="background-color: #4267b2;color: white">
+            <h2>The Dojo Message Board</h2><br>
+        </div>
+        <div class="main" style="background-color: #e9ebee">
+
+
+            <form action="/new_message" method="post" class="form-group">
+                <label>Name: </label><br>
+                <div class="col-6">
+                    <input type="text" name="name" class="form-control"></input>
+                </div>
+                <label>Message: </label><br>
+                <div class="col-8">
+                    <textarea name="message" class="form-control" rows="4"></textarea><br>
+                </div>
+                <input type="submit" class = "btn btn-primary offset-6" value="Post Message"></input>
+            </form>
+            <div class="errors">
+
+                <!-- based on the structure of your messages, determine how to display them -->
+                <% if(messages.message) { %>
+                <% for (var x of messages.message) { %>
+                <h3><%= x %></h3>
+                <% } %>
+                <% } %>
+            </div>
+
+            <div id="messages">
+                <div id="comments"></div>
+            </div>
+
+            <% for (var i in info) { %>
+            <p>Name: <%= info[i].name %></p>
+            <p>Message: <%= info[i].message %></p>
+            <% if (info[i].comments) { %>
+            <% for (j in info[i].comments) { %>
+            <div style="margin-left: 30px;">
+                <p>Name: <%= info[i].comments[j].name %></p>
+                <p>Comment: <%= info[i].comments[j].comment %></p>
+            </div>
+            <% } %>
+            <form style="margin-left: 30px;" action="/new_comment/<%= info[i]._id %>" method="post" class="form-group">
+                <label>Name: </label><br>
+                <div class="col-6">
+                    <input type="text" name="name" class="form-control"></input>
+                </div>
+                <label>Comment: </label><br>
+                <div class="col-8">
+                    <textarea name="comment" class="form-control" rows="4"></textarea><br>
+                </div>
+                <input type="submit" class="btn btn-success offset-6" value="Post Comment"></input>
+                <div class="errors">
+
+                    <!-- based on the structure of your messages, determine how to display them -->
+                    <% if(messages.comment) { %>
+                    <% for (var x of messages.comment) { %>
+                    <h3><%= x %></h3>
+                    <% } %>
+                    <% } %>
+                </div>
+            </form>
+
+            <br><br>
+            <% } %>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+
+</html>
