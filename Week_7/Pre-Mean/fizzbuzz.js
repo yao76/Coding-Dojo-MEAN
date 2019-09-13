@@ -53,4 +53,4 @@ function fizzbuzz(n) {
     return result;
 }
 
-console.log(fizzbuzz(10))
+console.log(fizzbuzz(20))
